@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Categories from './pages/Categories'
 import SingleGif from './pages/SingleGif'
 import Search from './pages/Search'
+import Favourites from './pages/Favourites'
 
 
 
@@ -30,11 +31,11 @@ function App() {
         path: '/search/:query',
         element:<Search/>
       },
-      {
-        element: '/favrourites',
-        element:'<Favourites/'
+       {
+        path: '/favorites',
+        element:<Favourites/>
       
-      }
+       }
     
     
     
