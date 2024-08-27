@@ -7,6 +7,7 @@ import Categories from './pages/Categories'
 import SingleGif from './pages/SingleGif'
 import Search from './pages/Search'
 import Favourites from './pages/Favourites'
+import GifProvider  from './context/context'
 
 
 
@@ -45,7 +46,11 @@ function App() {
    
   return (
     <>
-      <RouterProvider router={router}/>
+      
+       <GifProvider>
+         <RouterProvider router={router}/>
+       </GifProvider>
+    
     </>
   )
 }

@@ -1,9 +1,16 @@
 
-import React from 'react'
+import React, { useContext } from 'react'
+import { GifState } from '../context/context';
+
+
 
 const Home = () => {
+  const name = GifState();
+  console.log(name);
   return (
-    <div>Home</div>
+    <div>
+      Home{ name}
+    </div>
   )
 }
 
