@@ -21,7 +21,7 @@ function App() {
       element:<Home/>
       },
       {
-       path: '/category',
+       path: '/:category',
        element:<Categories/>
       },
       {

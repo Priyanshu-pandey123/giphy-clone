@@ -1,7 +1,8 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { HiEllipsisVertical, HiMiniBars3BottomLeft, HiMiniBars3BottomRight } from 'react-icons/hi2'
 import { Link } from 'react-router-dom'
+import { GifState } from '../context/context';
 
 
 
@@ -9,7 +10,18 @@ const Header = () => {
    
     const [categoires, SetCategories] = useState([]);
     const [showcategories, setShowCategories] = useState(false);
-    console.log(showcategories);
+    const { gf, gifs, setGifs } = GifState();
+    
+    const fetchData =async () => {
+        const { data } = await gf.categories();
+        SetCategories(data);
+        console.log(categoires)
+    } 
+
+
+    useEffect(() => {
+        fetchData();
+    },[])
 
   return (
       <nav>
@@ -27,7 +39,20 @@ const Header = () => {
               {/* categoires */}
               
               <div className=' bont-bold text-md  gap-2 flex items-center'>
-              <Link className='px-4 py-1  hidden lg:block border-b-4 hover:gradient'>Prince</Link>
+                  
+                  {/* // <Link className='px-4 py-1  hidden lg:block border-b-4 hover:gradient'>Prince</Link> */}
+                  {
+                      categoires?.slice(0, 5)?.map((c,) => <Link
+                          to={`/${c.name_encoded}`}
+                          key={c?.gif?.id}
+                          className='hidden lg:block'
+                  
+                       >{c.name}
+                      </Link>)
+                  }
+                  
+
+
               <button className='' onClick={()=>setShowCategories(!showcategories)}>
                 <HiEllipsisVertical size={35} className={`py-1 hidden lg:block border-b-4 hover:gradient  ${showcategories ?"gradient" :'' } `} />
               </button>

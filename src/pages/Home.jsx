@@ -5,8 +5,8 @@ import { GifState } from '../context/context';
 
 
 const Home = () => {
-  const name = GifState();
-  console.log(name);
+  const { name ,gf} = GifState();
+  console.log(name,gf);
   return (
     <div>
       Home{ name}
