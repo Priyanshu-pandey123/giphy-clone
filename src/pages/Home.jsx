@@ -2,6 +2,7 @@
 import React, { useContext, useEffect } from 'react'
 import { GifState } from '../context/context';
 import Gif from '../components/Gif';
+import FIlterGif from '../components/FIlterGif';
 
 
 
@@ -31,6 +32,9 @@ const Home = () => {
       />
 
       {/* FilterGifs */}
+      {/* // show the filter by ui */}
+      <FIlterGif/>
+
    
       
       {/* gifs{massionar layout} */}
